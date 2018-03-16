@@ -5,31 +5,46 @@ class Outcome():
     __slots__ = ['name', 'odds']
 
     def __init__(self, name, odds):
-        """TODO: to be defined1. """
         self.name = name
         self.odds = odds
+
     """Class Methods"""
 
-    def winAmount(self, amount):
-        return(self.odds * amount)
-
     def __eq__(self, other):
-        """TODO: Docstring for __eq__.
+        """
         :returns: True if this name matches the other name
         """
-        return(self.name == other.name)
+        return( self.__class__ == other.__class__ and
+                self.name == other.name
+        )
 
     def __ne__(self, other):
-        """TODO: Docstring for __ne__.
-
+        """
         :returns: True if this name does not match the other name
+        """
+        return(
+                self.__class__ != other.__class__ or 
+                self.name != other.name
+        )
+
+    def __hash__(self):
+        """TODO: Docstring for __hash__.
+        :returns: hash of name field
 
         """
-        return(self.name != other.name)
+        return(hash(self.name))
 
     def __str__(self):
-        """TODO: Docstring for __str__.
-        :returns: TODO
-
+        """
+        :returns: Formatted string with name and odds
         """
         return "%s (%d:1)" % ( self.name, self.odds )
+
+    def winAmount(self, amount):
+       """
+       :amount: Integer value of bet amount.
+       :returns: Numeric value of win amount. 
+       """
+       return(self.odds * amount)
+
+
