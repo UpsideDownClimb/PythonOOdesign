@@ -8,6 +8,7 @@ class BinBuilder(object):
     SPLIT_VALUE    = 17
     STREET_VALUE   = 11
     CORNER_VALUE   = 8
+    FIVEBET_VALUE  = 6
     LINE_VALUE     = 5
     DOZEN_VALUE    = 2
     COLUMN_VALUE   = 2
@@ -21,6 +22,10 @@ class BinBuilder(object):
         :wheel: Wheel class to build bins for
         """
         self.wheel = wheel
+        self._addAllBets()
+
+    def _addAllBets(self):
+
         self._addStraightBets()
         self._addSplitBets()
         self._addStreetBets()
@@ -29,6 +34,7 @@ class BinBuilder(object):
         self._addDozenBets()
         self._addColumnBets()
         self._addEvenBets()
+        self._addFiveBet()
 
     def _addStraightBets(self):
         for binIndex in range(37):
@@ -75,15 +81,15 @@ class BinBuilder(object):
             self._addToWheel(binIndex, self.LINE_VALUE, 1, 2, 3, 4, 5)
 
     def _addDozenBets(self):
-        for dozen in range(1, 3):
+        for dozen in range(1, 4):
             outcomeName = str(dozen) + '-' + str(dozen*12)
             outcome = Outcome(outcomeName, self.DOZEN_VALUE)
-            offset = 12 * (dozen - 1)
+            offset = 12 * (dozen - 1) + 1
             for binIndex in range(12):
                 self.wheel.addOutcome(binIndex + offset, outcome)
 
     def _addColumnBets(self):
-        for column in range(1, 3):
+        for column in range(1, 4):
             outcomeName = 'Column ' + str(column)
             outcome = Outcome(outcomeName, self.COLUMN_VALUE)
 
@@ -106,3 +112,10 @@ class BinBuilder(object):
             outcome = Outcome(outcomeName, value)
             for binIndex in outcomeRange:
                 self.wheel.addOutcome(binIndex, outcome)
+
+    def _addFiveBet(self):
+        value = self.FIVEBET_VALUE
+        binIndexes = [0, 1, 2, 3, 37]
+        outcome = Outcome("Five bet", value)
+        for binIndex in binIndexes:
+            self.wheel.addOutcome(binIndex, outcome)
