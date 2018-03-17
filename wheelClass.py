@@ -13,18 +13,19 @@ class Wheel(object):
         self.bins = tuple( Bin() for i in range(38) )
         self.rng  = rng or random.Random()
 
-    def addOutcome(self, binIndex: int, outcome: Outcome) -> None:
+    def addOutcome(self, binIndex, outcome):
         """
         :outcome: An Outcome class object to be added to a numbered bin in tuple
         :number: Index of bin in the tuple in range from 0 to 37
         """
         self.bins[binIndex].add(outcome)
 
-    def next(self) -> Bin:
+    def next(self):
         """Return random bin"""
-        binChoice = self.rng.choice(self.bins)
+        return self.rng.choice(self.bins)
 
-    def get(self, binIndex: int) -> Bin:
+
+    def get(self, binIndex):
         """
         :binIndex: Bin index: 0-37
         """

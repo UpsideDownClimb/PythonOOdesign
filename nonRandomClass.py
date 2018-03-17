@@ -3,9 +3,9 @@ import random
 class NonRandom(random.Random):
     __slots__ = ['value']
 
-    def __init__(self) -> None:
+    def __init__(self):
         self.value = None
-    def setSeed(self, seed) -> None:
+    def setSeed(self, seed):
         """TODO: Docstring for .
         :seed: Non-random value to be set
         """

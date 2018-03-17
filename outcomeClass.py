@@ -40,6 +40,12 @@ class Outcome():
         """
         return "%s (%d:1)" % ( self.name, self.odds )
 
+    def __repr__(self):
+        """
+        :returns: Formatted string with name and odds
+        """
+        return "%s (%d:1)" % ( self.name, self.odds )
+
     def winAmount(self, amount):
        """
        :amount: Integer value of bet amount.
