@@ -36,7 +36,7 @@ class BinBuilder(object):
 
         self.wheel.addOutcome(37, Outcome('00', self.STRAIGHT_VALUE))
 
-    def _createOutputName(*args):
+    def _createOutputName(self, *args):
         return(', '.join(str(x) for x in args))
 
     def _addToWheel(self, binIndex, betValue, *offsets):
