@@ -1,13 +1,15 @@
-from binClass import Bin
-from outcomeClass import Outcome
 import unittest
+from roulette.bin import Bin
+from roulette.outcome import Outcome
+
 
 class OutcomeTests(unittest.TestCase):
     def setUp(self):
-        self.outcome1 = Outcome("asdf", 2)
-        self.outcome2 = Outcome("asdf", 2)
-        self.outcome3 = Outcome("asdfh", 2)
-        self.outcome4 = Outcome("asdfj", 3)
+
+        self.outcome1 = Outcome("Red", 2)
+        self.outcome2 = Outcome("Red", 2)
+        self.outcome3 = Outcome("Black", 2)
+        self.outcome4 = Outcome("Black", 3)
         self.bin1 = Bin(self.outcome1)
         self.bin2 = Bin(self.outcome1, self.outcome2)
         self.bin3 = Bin(self.outcome1, self.outcome3)
@@ -18,5 +20,6 @@ class OutcomeTests(unittest.TestCase):
         and the hashes of the objects are different
         """
         self.assertEqual(self.bin1, self.bin2, "Unequal bins with the same outcome repeated")
+
     def testNonEquality(self):
         self.assertNotEqual(self.bin1, self.bin3, "Equal bins with different outcomes")

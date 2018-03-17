@@ -1,5 +1,5 @@
-from binClass import Bin
-from outcomeClass import Outcome
+from roulette.bin import Bin
+from roulette.outcome import Outcome
 import random
 
 class Wheel(object):

@@ -1,16 +1,16 @@
-from binClass import Bin
-from outcomeClass import Outcome
-from wheelClass import Wheel
-from nonRandomClass import NonRandom
+from roulette.bin import Bin
+from roulette.outcome import Outcome
+from roulette.wheel import Wheel
+from roulette.nonRandom import NonRandom
 import unittest
 
 class WheelTests(unittest.TestCase):
 
     def setUp(self):
-        self.outcome1 = Outcome("asdf", 2)
-        self.outcome2 = Outcome("asdf", 2)
-        self.outcome3 = Outcome("asdfh", 2)
-        self.outcome4 = Outcome("asdfj", 3)
+        self.outcome1 = Outcome("Red", 2)
+        self.outcome2 = Outcome("Red", 2)
+        self.outcome3 = Outcome("Black", 2)
+        self.outcome4 = Outcome("Black", 3)
 
         self.bin1 = Bin(self.outcome1)
         self.bin2 = Bin(self.outcome1, self.outcome2)
