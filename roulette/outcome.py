@@ -4,7 +4,7 @@ class Outcome():
 
     __slots__ = ['name', 'odds']
 
-    def __init__(self, name, odds):
+    def __init__(self, name: str, odds: int):
         self.name = name
         self.odds = odds
 
@@ -34,17 +34,11 @@ class Outcome():
         """
         return(hash(self.name))
 
-    def __str__(self):
-        """
-        :returns: Formatted string with name and odds
-        """
-        return "%s (%d:1)" % ( self.name, self.odds )
-
     def __repr__(self):
         """
         :returns: Formatted string with name and odds
         """
-        return "%s (%d:1)" % ( self.name, self.odds )
+        return "{0} ({1}:1)".format(self.name, self.odds)
 
     def winAmount(self, amount):
        """

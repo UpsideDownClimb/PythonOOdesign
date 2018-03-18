@@ -1,4 +1,4 @@
-from outcomeClass import Outcome
+from roulette.outcome import Outcome
 
 class BinBuilder(object):
 
@@ -16,6 +16,7 @@ class BinBuilder(object):
 
     def __init__(self):
         """TODO: to be defined1. """
+        pass
 
     def buildBins(self, wheel):
         """
