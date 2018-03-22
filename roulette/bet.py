@@ -1,10 +1,12 @@
 from roulette.wheel import Wheel
+from roulette.outcome import Outcome
 
 class Bet(object):
 
-    """Docstring for Bet. """
+    """Docstring for Bet
+    """
 
-    def __init__(self, betAmount, outcome):
+    def __init__(self, betAmount: int, outcome: Outcome):
         """TODO: to be defined1. """
         self.betAmount = betAmount
         self.outcome = outcome
