@@ -34,7 +34,7 @@ class Table(object):
         return minimumCheck and limitCheck
 
     def __iter__(self):
-        return bets[:]
+        return iter(self.bets[:])
 
     def __str__(self):
         """TODO: Docstring for __str__.

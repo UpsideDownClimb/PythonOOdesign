@@ -1,7 +1,9 @@
+from roulette.bet import Bet
+
 class Passenger57(object):
 
     """Docstring for Passenger57. """
-    __slots__ = ['black', 'table']
+    __slots__ = ['black', 'table', 'wheel', 'winnings', 'losses']
     BET_AMOUNT = 10
 
     def __init__(self, table, wheel):
@@ -13,7 +15,8 @@ class Passenger57(object):
         self.losses   = []
 
     def placeBets(self):
-        table.placeBet(BET_AMOUNT, self.black)
+        betToPlace = Bet(self.BET_AMOUNT, self.black)
+        self.table.placeBet(betToPlace)
 
     def win(self, bet):
         self.winnings.append(bet.winAmount())

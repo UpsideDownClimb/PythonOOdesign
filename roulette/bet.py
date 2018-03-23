@@ -12,11 +12,10 @@ class Bet(object):
         self.outcome = outcome
 
     def winAmount(self):
-        total = outcome.winAmount(amount) + betAmount
-        return(total)
+        return(self.outcome.winAmount(self.betAmount))
 
     def loseAmount(self):
-        return(betAmount)
+        return(self.betAmount)
 
     def __str__(self):
         return("{0} on {1}".format(self.betAmount, self.outcome))
