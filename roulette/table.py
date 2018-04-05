@@ -1,10 +1,10 @@
+from roulette.invalidBet import InvalidBet
+
 class Table(object):
 
     """Docstring for Table. """
 
-    __slots__ = ['limit', 'minimum', 'bets']
-
-    def __init__(self, minimum = 1, limit = 10000):
+    def __init__(self, wheel, minimum = 1, limit = 10000):
         """TODO: to be defined.
 
         :minimum: TODO
@@ -14,6 +14,7 @@ class Table(object):
         self.minimum = minimum
         self.limit = limit
         self.bets = []
+        self.wheel = wheel
 
     def placeBet(self, bet):
         """TODO: Docstring for placeBet.
@@ -29,7 +30,7 @@ class Table(object):
         :bet: TODO
         :returns: TODO
         """
-        minimumCheck = bet.betAmount > self.minimum
+        minimumCheck = bet.betAmount >= self.minimum
         limitCheck   = sum(bet.betAmount for bet in self.bets) < self.limit
         return minimumCheck and limitCheck
 
