@@ -12,7 +12,7 @@ class Player:
         self.stake = self.STAKE_AMOUNT
         self.roundsToGo = self.DEFAULT_ROUNDS_TO_GO
 
-    def playing(self):
+    def isPlaying(self):
         return self.stake > 0 and self.roundsToGo > 0
 
     def placeBets(self):
@@ -24,6 +24,13 @@ class Player:
 
     def lose(self, bet):
         pass
+
+    def setStake(self, stake):
+        self.stake = stake
+
+    def setRounds(self, rounds):
+        self.roundsToGo = rounds
+
 
 class Passenger57(Player):
 

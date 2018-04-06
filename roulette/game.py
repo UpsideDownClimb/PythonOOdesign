@@ -4,8 +4,8 @@ class RouletteGame(object):
         self.wheel = wheel
         self.table = table
 
-    def _isPlayerPlaying(player):
-        return player.playing()
+    def _isPlayerPlaying(self, player):
+        return player.isPlaying()
 
     def cycle(self, player):
         if self._isPlayerPlaying(player):
